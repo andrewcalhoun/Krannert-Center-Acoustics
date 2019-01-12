@@ -2,20 +2,18 @@
 """
 @author: Andrew Calhoun
          University of Illinois at Urbana-Champaign
-Created on Sat Dec 8 2018
+Created on Sat Jan 12 2019
 Last edited on Sat Jan 12 2019
 """
 
-###This file is meant as a test realm for experimental ideas and tinkering
-###that is not yet ready to be worked on in the main project files
+###This file is used to calculate the rate of sound decay in recordings made in the Krannert Center Great Hall
 
 
 import numpy as np
 import pandas as pd
-import os
 import sys
+import os
 
-#from numba import jit
 from definitions import ROOT_DIR
 
 
