@@ -3,7 +3,7 @@
 @author: Andrew Calhoun
          University of Illinois at Urbana-Champaign
 Created on Jan 12 2019
-Last edited on Jan 17 2019
+Last edited on Jan 21 2019
 """
 
 ###This file is used to calculate the rate of sound decay in recordings made in the Krannert Center Great Hall
@@ -24,8 +24,6 @@ def import_fnames():
     if len(sys.argv) > 1:
         dataDirectory = sys.argv[1]
     ### find all kDQ pickled files by recursively walking the data directory
-    print("dataDirectory: "+dataDirectory)
-    print("ROOT_DIR: "+ROOT_DIR)
     fnames = []
     for subdir, dirs, files in os.walk(dataDirectory):
         for filen in files:
@@ -44,14 +42,12 @@ def import_pickle(pname):
     return data_master
 
 
-def main(fnum):
+def main(fnames,fnum):
     """This takes the number assigned to the desired file and runs the analysis on it"""
 
     pnames = import_fnames() #return all names of the kDQ FFT data directory
-    print(pnames)
 
-    test = import_pickle(pnames[fnum])
-    print(test)
+    df = import_pickle(pnames[fnum])
 
 
 if __name__ == '__main__':
