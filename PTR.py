@@ -14,6 +14,7 @@ import numpy as np
 import pandas as pd
 import os
 import sys
+from tqdm import tqdm
 
 #from numba import jit
 from definitions import ROOT_DIR
@@ -48,4 +49,9 @@ def import_pickle(pname):
 
 if __name__ == '__main__':
 
-    pnames = import_fnames() #return all names of the kDQ FFT data directory
+    #pnames = import_fnames() #return all names of the kDQ FFT data directory
+
+    l = ['this','is','a','list']
+
+    for word in tqdm(l):
+        print(word)
