@@ -3,7 +3,7 @@
 @author: Andrew Calhoun
          University of Illinois at Urbana-Champaign
 Created on Sat Jan 12 2019
-Last edited on Sat Jan 12 2019
+Last edited on Sat Mar 13 2019
 """
 
 ###This file is to contain any important information that must be shared
@@ -11,6 +11,23 @@ Last edited on Sat Jan 12 2019
 
 
 import os
+import sys
 
 
 ROOT_DIR = os.path.dirname(os.path.abspath(__file__)) #Project root
+
+
+def import_fnames():
+    """This reads the data directory and creates a list of the file names"""
+
+    dataDirectory = ROOT_DIR + "/Data"
+    if len(sys.argv) > 1:
+        dataDirectory = sys.argv[1]
+    ### find all kDQ pickled files by recursively walking the data directory
+    #print("dataDirectory: "+dataDirectory)
+    #print("ROOT_DIR: "+ROOT_DIR)
+    for subdir, dirs, files in os.walk(dataDirectory):
+        for filen in files:
+            continue
+
+    return files
