@@ -12,46 +12,26 @@ Last edited on Sat Jan 12 2019
 
 import numpy as np
 import pandas as pd
-import os
-import sys
 from tqdm import tqdm
+from scipy.io import wavfile
+import matplotlib.pyplot as plt
 
 #from numba import jit
-from definitions import ROOT_DIR
-
-
-def import_fnames():
-    """This reads the data directory and creates a list of the file names"""
-
-    dataDirectory = ROOT_DIR + "/Data"
-    if len(sys.argv) > 1:
-        dataDirectory = sys.argv[1]
-    ### find all kDQ pickled files by recursively walking the data directory
-    print("dataDirectory: "+dataDirectory)
-    print("ROOT_DIR: "+ROOT_DIR)
-    fnames = []
-    for subdir, dirs, files in os.walk(dataDirectory):
-        for filen in files:
-            continue
-
-    fnames = files
-    print("fnames: "+fnames)
-
-    return fnames
-
-
-def import_pickle(pname):
-    """Easy to call function to import pickled Pandas DataFrames"""
-
-    data_master = pd.read_pickle(pname)
-    return data_master
+from definitions import ROOT_DIR,import_fnames
 
 
 if __name__ == '__main__':
 
-    #pnames = import_fnames() #return all names of the kDQ FFT data directory
+    fs,data = wavfile.read('C:/Users/Andrew/Desktop/Balcony_Mic_Recordings/kDA73#08.wav')
 
-    l = ['this','is','a','list']
+    print(data)
+    print(len(data))
 
-    for word in tqdm(l):
-        print(word)
+    amp = []
+    for i in range(0,len(data)-1):
+        diff = abs( data[i+1]-data[i] )
+        amp.append(diff)
+
+    #plt.plot( np.linspace(0,800000-500000-1,800000-500000) , abs(data[500000:800000]) )
+    plt.plot( np.linspace(0,800000-500000-1,800000-500000) , abs(data[500000:800000]) )
+    plt.show()

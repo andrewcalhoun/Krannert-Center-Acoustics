@@ -42,12 +42,12 @@ def import_pickle(pname):
     return data_master
 
 
-def main(fnames,fnum):
+def main():
     """This takes the number assigned to the desired file and runs the analysis on it"""
 
     pnames = import_fnames() #return all names of the kDQ FFT data directory
 
-    df = import_pickle(pnames[fnum])
+
 
 
 if __name__ == '__main__':
